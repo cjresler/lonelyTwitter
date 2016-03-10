@@ -7,8 +7,16 @@ import java.util.ArrayList;
  */
 public class TweetList {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+    private static TweetList myTweetList;
 
     protected TweetList() { super(); }
+
+    public static TweetList getInstance() {
+        if(myTweetList == null){
+            myTweetList = new TweetList();
+        }
+        return myTweetList;
+    }
 
     public void add(Tweet tweet) {
         tweets.add(tweet);

@@ -29,6 +29,9 @@ public class EditTweetActivity extends Activity {
 
         tweetText.setText(passedTweet.getText());
 
+        Tweet mySelectedTweet = TweetList.getInstance().get(0);
+        System.out.println("The text of the tweet was: " + mySelectedTweet);
+
 
         ok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

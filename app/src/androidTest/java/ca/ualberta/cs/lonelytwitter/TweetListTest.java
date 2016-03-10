@@ -34,7 +34,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testSingleton() {
         //TODO write code for tests!
-        TweetList list = TweetList.getInstance();
+        TweetList list = new TweetList();
         list.add(new NormalTweet("test"));
 
         assertEquals(list.size(), 1);
