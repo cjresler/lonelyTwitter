@@ -47,6 +47,7 @@ public class LonelyTwitterActivity extends Activity {
         oldTweetsList = (ListView) findViewById(R.id.tweetsList);
 
 
+        //http://developer.android.com/training/camera/photobasics.html
         pictureButton = (ImageButton) findViewById(R.id.pictureButton);
         pictureButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -64,7 +65,7 @@ public class LonelyTwitterActivity extends Activity {
                 String text = bodyText.getText().toString();
                 NormalTweet latestTweet = new NormalTweet(text);
 
-                tweets.add(latestTweet);
+                tweets.add(0, latestTweet);
 
                 latestTweet.addThumbnail(thumbnail);
 
@@ -106,6 +107,7 @@ public class LonelyTwitterActivity extends Activity {
         oldTweetsList.setAdapter(adapter);
     }
 
+    //
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){

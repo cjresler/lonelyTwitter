@@ -26,7 +26,7 @@ public abstract class Tweet {
     protected Date date;
     protected String message;
 
-    protected transient Bitmap thumbnail;
+    protected transient Bitmap thumbnail; //transient means it doesn't need to be serialized in the Json object
     protected String thumbnailBase64;
 
     public Tweet(Date date, String message, Bitmap thumbnail) {
@@ -94,6 +94,7 @@ public abstract class Tweet {
     public Bitmap getThumbnail(){
         if (thumbnail == null && thumbnailBase64 != null){
             byte[] decodeString = Base64.decode(thumbnailBase64, Base64.DEFAULT);
+            //Start on first index, decode until end of string
             thumbnail = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
         }
         return thumbnail;
